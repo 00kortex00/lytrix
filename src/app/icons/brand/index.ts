@@ -1,0 +1,1 @@
+export { LytrixLogo } from './LytrixLogo';
