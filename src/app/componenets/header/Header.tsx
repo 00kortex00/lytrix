@@ -1,11 +1,18 @@
 import { LytrixLogo, RulesIcon, ShopIcon, SupportIcon } from "@icons";
 import styles from './header.module.css';
+import { Socials } from "../socials/Socials";
+import { ServerInfo } from "../serverInfo/ServerInfo";
+import { BurgerButton } from "./BurgerButton";
 
 export const Header = () => {
     return (
         <header className={styles.header}>
-            <div className="content">
-                <LytrixLogo />
+            <div className={styles.wrapper}>
+                <div className={styles.minimal}>
+                    <LytrixLogo className={styles.brand} />
+                    <BurgerButton />
+                </div>
+
                 <nav>
                     <ul>
                         <li>
@@ -30,6 +37,10 @@ export const Header = () => {
                         </li>
                     </ul>
                 </nav>
+
+                <ServerInfo className={styles.serverInfo} />
+
+                <Socials className={styles.socials} />
             </div>
         </header>
     );

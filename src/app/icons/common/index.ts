@@ -3,3 +3,4 @@ export { OnlineIcon } from './OnlineIcon';
 export { RulesIcon } from './RulesIcon';
 export { ShopIcon } from './ShopIcon';
 export { SupportIcon } from './SupportIcon';
+export { BurgerIcon } from './BurgerIcon';

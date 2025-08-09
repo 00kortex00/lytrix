@@ -1,0 +1,65 @@
+.serverInfo {
+    display: flex;
+    gap: 32px;
+}
+
+.serverInfo :is(p, svg) {
+    color: color-mix(in srgb, var(--color-primary), transparent 40%);
+    transition: .33s;
+}
+
+.serverInfo p {
+    font-size: 12px;
+}
+
+.serverInfo>div {
+    position: relative;
+    overflow: hidden;
+}
+
+.serverInfo>div>div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.serverAddress {
+    cursor: pointer;
+    transition: .33s;
+    min-width: 128px;
+}
+
+.serverAddress::after {
+    content: 'скопировано';
+    background-color: color-mix(in srgb, var(--color-accent), var(--color-background) 20%);
+    color: var(--color-background);
+    font-size: 12px;
+    font-weight: 700;
+    position: absolute;
+    bottom: 0;
+    padding: 2px 0;
+    left: -5px;
+    transform: translate(0, 100%);
+    width: calc(100% + 10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: .33s;
+}
+
+.serverAddress.copied::after {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .serverAddress:hover {
+        color: var(--color-primary);
+    }
+
+    .serverAddress:hover :is(p, svg) {
+        color: color-mix(in srgb, var(--color-primary), transparent 20%);
+    }
+}

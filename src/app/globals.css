@@ -11,11 +11,13 @@
 
 * {
   font-family: Jura, sans-serif;
+  margin: 0;
 }
 
 body {
   font-weight: 500;
   margin: 0;
-  color: var(--color-primary);
+  color: color-mix(in srgb, var(--color-primary), transparent 20%);
   background-color: var(--color-background);
+  font-size: 16px;
 }

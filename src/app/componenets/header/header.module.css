@@ -1,3 +1,23 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-background);
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1728px;
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    gap: 64px;
+}
+
+.header nav {
+    flex: 1;
+}
+
 .header nav ul {
     padding: 0;
     display: flex;
@@ -8,11 +28,106 @@
     display: block;
 }
 
-.header a {
-    color: var(--color-primary);
+.header nav a {
+    color: color-mix(in srgb, var(--color-primary), transparent 20%);
     text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 8px;
+    transition: .33s;
+}
+
+.brand {
+    color: color-mix(in srgb, var(--color-accent), transparent 20%);
+}
+
+.burger {
+    display: none;
+    background-color: transparent;
+    border: none;
+    color: color-mix(in srgb, var(--color-primary), transparent 20%);
+    transition: .33s;
+}
+
+.socials {
+    margin-left: 64px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .header nav a:hover {
+        color: var(--color-primary);
+    }
+
+    .burger:hover {
+        cursor: pointer;
+        color: var(--color-primary);
+    }
+}
+
+@media (max-width: 1200px) {
+    .burger {
+        display: flex;
+    }
+
+    .minimal {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .wrapper {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .socials {
+        margin-left: 0;
+    }
+
+    .wrapper {
+        height: 96px;
+        box-sizing: border-box;
+        overflow: hidden;
+        transition: .33s;
+    }
+
+    .wrapper:has(.opened) {
+        height: auto;
+        height: calc-size(auto, size);
+    }
+
+    .wrapper {
+        &>:is(nav, .serverInfo, .socials) {
+            opacity: 0;
+            transform: translate(-24px, 0);
+            transition: .33s;
+        }
+    }
+
+     .wrapper:has(.opened) {
+        &>:is(nav, .serverInfo, .socials) {
+            opacity: 1;
+            transform: translate(0, 0);
+            transition: 1s;
+        }
+
+        .serverInfo {
+            transition-delay: .33s;
+        }
+
+        .socials {
+            transition-delay: .66s;
+        }
+     }
+    
+}
+
+@media (max-width: 360px) {
+    .wrapper :is(.serverInfo, nav ul) {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
 }
