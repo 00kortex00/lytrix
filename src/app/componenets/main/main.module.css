@@ -1,0 +1,85 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        width: 100%;
+    }
+
+    h1 {
+        color: color-mix(in srgb, var(--color-accent), transparent 20%);
+        font-size: 64px;
+        font-weight: 700;
+    }
+
+    p {
+        letter-spacing: 6px;
+        font-weight: 400;
+    }
+
+    .line {
+        color: color-mix(in srgb, var(--color-primary), transparent 90%);
+        max-width: 100%;
+    }
+
+    .btns {
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        width: 100%;
+    }
+
+    .btn {
+        width: 200px;
+        padding: 4px 0;
+        border-radius: 4px;
+        background-color: color-mix(in srgb, var(--color-primary), transparent 90%);
+        color: color-mix(in srgb, var(--color-primary), transparent 20%);
+        border: none;
+        transition: .33s;
+        user-select: none;
+
+        @media (hover: hover) and (pointer: fine) {
+            &:hover {
+                background-color: color-mix(in srgb, var(--color-primary), transparent 80%);
+                color: var(--color-primary);
+                cursor: pointer;
+            }
+        }
+    }
+
+    .startBtn {
+        color: var(--color-background);
+        background-color: color-mix(in srgb, var(--color-accent), transparent 20%);
+
+        @media (hover: hover) and (pointer: fine) {
+            &:hover {
+                color: var(--color-background);
+                background-color: var(--color-accent);
+            }
+        }
+    }
+
+    @media (max-width: 450px) {
+        .btns {
+            flex-direction: column;
+            padding: 0 24px;
+            box-sizing: border-box;
+        }
+        
+        .btn {
+            padding: 8px 0;
+            width: 100%;
+        }
+    }
+}
