@@ -3,6 +3,7 @@ import styles from './header.module.css';
 import { Socials } from "../socials/Socials";
 import { ServerInfo } from "../serverInfo/ServerInfo";
 import { BurgerButton } from "./BurgerButton";
+import { RulesLink } from "./RulesLink";
 
 export const Header = () => {
     return (
@@ -23,10 +24,7 @@ export const Header = () => {
                         </li>
 
                         <li>
-                            <a href="#">
-                                <RulesIcon />
-                                правила
-                            </a>
+                            <RulesLink />
                         </li>
 
                         <li>

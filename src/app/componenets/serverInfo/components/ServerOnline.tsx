@@ -1,12 +1,13 @@
 import { OnlineIcon } from "@/app/icons";
+import { getServerOnline } from "./getServerOnline";
 
-export const ServerOnline = () => {
+export const ServerOnline = async () => {
     return (
         <div>
             <p>игроков онлайн</p>
             <div>
                 <OnlineIcon />
-                215 из 300
+                {await getServerOnline()}
             </div>
         </div>
     );

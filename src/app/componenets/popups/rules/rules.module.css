@@ -1,0 +1,91 @@
+.rules {
+    width: 100%;
+}
+
+.wrapper {
+    display: flex;
+    gap: 64px;
+    height: 440px;
+    width: 100%;
+}
+
+.tabs {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    max-height: 100%;
+    gap: 8px;
+    overflow-y: auto;
+}
+
+.category {
+    width: 100%;
+    background-color: color-mix(in srgb, var(--color-primary), transparent 90%);
+    color: color-mix(in srgb, var(--color-primary), transparent 20%);
+    border: none;
+    text-align: start;
+    border-radius: 8px;
+    padding: 4px 16px;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    position: relative;
+    transition: .33s;
+
+    &:not(.currentTab):hover {
+        background-color: color-mix(in srgb, var(--color-primary), transparent 80%);
+    }
+}
+
+.currentTab {
+    color: var(--color-background);
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: color-mix(in srgb, var(--color-accent), transparent 20%);
+        transform: translate(100%, 0);
+        animation: tabSwitchAnimation .33s forwards;
+        z-index: -1;
+    }
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ruleKey {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: color-mix(in srgb, var(--color-accent), transparent 90%);
+    color: color-mix(in srgb, var(--color-accent), transparent 20%);
+    padding: 4px 8px;
+    min-width: 64px;
+    box-sizing: border-box;
+}
+
+.content>div {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+@keyframes tabSwitchAnimation {
+    from {
+        transform: translate(100%, 0);
+    }
+
+    to {
+        transform: translate(0, 0);
+    }
+}

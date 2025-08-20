@@ -1,0 +1,48 @@
+.popupWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.leaveArea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #000a;
+    animation: showLeaveAreaAnimation 1s;
+}
+
+.popupWrapper>div:last-child {
+    animation: popupShowAnimation .33s;
+}
+
+
+@keyframes showLeaveAreaAnimation {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes popupShowAnimation {
+    from {
+        opacity: 0;
+        transform: translate(-50px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
